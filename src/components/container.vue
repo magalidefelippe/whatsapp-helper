@@ -22,11 +22,6 @@
               >
               </vue-country-code>
               <b-form-input></b-form-input>
-              <b-input-group-append>
-                <b-button variant="outline-primary">
-                  <b-icon icon="mic"> </b-icon>
-                </b-button>
-              </b-input-group-append>
             </b-input-group>
 
             <b-button class="mt-3" block variant="outline-primary">
