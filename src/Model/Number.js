@@ -28,4 +28,8 @@ export class Number {
     clean(){
         this.phone = null;
     }
+
+    send(number){
+        window.location.href = `https://wa.me/${number}`;
+    }
 }
