@@ -22,7 +22,12 @@ describe("Number class use cases", () => {
         const convertedPhone = number.convert();
      
         expect(typeof convertedPhone).toBe('string');
-
     })
 
+    test("Can clean the phone", () => {
+        number.phone = 222222
+        number.clean();
+     
+        expect(number.phone).toBe(null)
+    })
 }) 
