@@ -20,4 +20,8 @@ export class Number {
             return this.concat();
         }
     }
+
+    convert(){
+        return this.phone.toString();
+    }
 }
