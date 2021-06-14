@@ -1,45 +1,58 @@
 export class Number {
-    constructor(){
+    constructor() {
         this.code = 'ar',
         this.phone = null
     }
 
-    execute(){
+    execute(self) {
         let finalNumber;
-        this.checkPhone();
-        finalNumber = this.convert();
-        finalNumber = this.checkCode(finalNumber);
-        this.clean();
-        this.send(finalNumber)
+        const validation = this.checkPhone()
+        if (validation) {
+            this.returnError(self)
+        } else {
+            finalNumber = this.convert();
+            finalNumber = this.checkCode(finalNumber);
+            this.clean();
+            this.send(finalNumber)
+        }
     }
 
-    checkPhone(){
-        if( this.phone == null || this.phone.length < 10) throw new Error('Numero muy corto')
+    checkPhone() {
+        if (this.phone == null || this.phone.length < 10)
+            return true
     }
 
-    concat(number){
+    returnError(self) {
+        self.$swal({
+            text: 'Número muy corto',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        })
+    }
+
+    concat(number) {
         return this.code.concat(number);
     }
 
-    checkCode(number){
+    checkCode(number) {
         const length = this.code.length;
-        if(number.slice(0, length) === this.code){
+        if (number.slice(0, length) === this.code) {
             return number;
-        }else {
+        } else {
             return this.concat(number);
         }
     }
 
-    convert(){
+    convert() {
         const numberToString = this.phone.toString();
         return numberToString;
     }
 
-    clean(){
+    clean() {
         this.phone = null;
     }
 
-    send(number){
+    send(number) {
         window.location.href = `https://wa.me/${number}`;
     }
 }
