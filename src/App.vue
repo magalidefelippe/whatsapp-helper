@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <container class="mt-4" />
+    <transition name="fade" mode="out-in">
+      <container class="mt-4" />
+    </transition>
   </div>
 </template>
 
