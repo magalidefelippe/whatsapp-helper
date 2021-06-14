@@ -8,4 +8,12 @@ describe("Number class use cases", () => {
         expect(validation).toThrow('Numero muy corto')
     })
 
+    test("if the number not initialice with the code, concat the number and the code", () => {
+        number.concat = jest.fn();
+        const phone = '222222';
+        number.code = 111;
+        number.checkCode(phone);
+        expect(number.concat).toBeCalled();
+    })
+
 }) 
