@@ -24,4 +24,8 @@ export class Number {
     convert(){
         return this.phone.toString();
     }
+
+    clean(){
+        this.phone = null;
+    }
 }
