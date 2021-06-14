@@ -18,13 +18,14 @@
           <b-card-text>
             <b-input-group class="mt-3">
               <vue-country-code
+              @onSelect="selectCountry"
                 :preferredCountries="['ar', 'es', 'us', 'br', 've', 'uy']"
               >
               </vue-country-code>
-              <b-form-input></b-form-input>
+              <b-form-input type="number" v-model="number.phone"></b-form-input>
             </b-input-group>
 
-            <b-button class="mt-3" block variant="outline-primary">
+            <b-button @click="send" class="mt-3" block variant="outline-primary">
               <b-spinner v-show="loading" small type="grow"></b-spinner>
               Llevame a whatsapp!</b-button
             >
@@ -34,3 +35,24 @@
     </b-row>
   </b-container>
 </template>
+<script>
+import { Number } from '../Model/Number';
+
+export default {
+    data: () => ({
+        number: new Number()
+    }),
+
+
+
+    methods: {
+        selectCountry({dialCode}){
+            this.number.code = dialCode;
+        },
+        
+        send(){
+            this.number.execute()
+        }
+    }
+}
+</script>

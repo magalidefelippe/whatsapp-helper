@@ -1,15 +1,24 @@
 export class Number {
     constructor(){
-        this.code = '',
+        this.code = 'ar',
         this.phone = null
     }
 
-    checkPhone(number){
-        if(number == null || number.length < 10) throw new Error('Numero muy corto')
+    execute(){
+        let finalNumber;
+        this.checkPhone();
+        finalNumber = this.convert();
+        finalNumber = this.checkCode(finalNumber);
+        this.clean();
+        this.send(finalNumber)
     }
 
-    concat(){
-        return this.code.concat(this.phone);
+    checkPhone(){
+        if( this.phone == null || this.phone.length < 10) throw new Error('Numero muy corto')
+    }
+
+    concat(number){
+        return this.code.concat(number);
     }
 
     checkCode(number){
@@ -17,12 +26,13 @@ export class Number {
         if(number.slice(0, length) === this.code){
             return number;
         }else {
-            return this.concat();
+            return this.concat(number);
         }
     }
 
     convert(){
-        return this.phone.toString();
+        const numberToString = this.phone.toString();
+        return numberToString;
     }
 
     clean(){
