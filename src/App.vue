@@ -18,9 +18,10 @@ export default {
 <style>
 #app {
   text-align: center;
-  background-color: #F5D8A9;
+  background-color: #F5D8A9; 
 }
 html{
   background-color: #F5D8A9;
 }
+
 </style>

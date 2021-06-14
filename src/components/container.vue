@@ -1,20 +1,20 @@
 <template>
-  <b-container class="bv-example-row">
-    <b-row align-h="center">
-      <b-card
+  <b-container fluid="sm">
+    <b-row align-v="center" align-h="center" style="height: 90vh">
+        <b-col col md="6">
+            <b-card
         no-body
         border-variant="primary"
         header="primary"
         header-bg-variant="primary"
         header-text-variant="white"
-        style="width: 80%"
       >
         <template #header>
           <h4 class="mb-0">WhatsApp helper!</h4>
         </template>
 
         <b-card-body>
-          <b-card-sub-title class="mb-2">Code by Magascript</b-card-sub-title>
+          <b-card-sub-title class="mb-3">Code by Magascript</b-card-sub-title>
           <b-card-text>
             <b-input-group class="mt-3">
               <vue-country-code
@@ -36,6 +36,8 @@
           </b-card-text>
         </b-card-body>
       </b-card>
+        </b-col>
+      
     </b-row>
   </b-container>
 </template>
