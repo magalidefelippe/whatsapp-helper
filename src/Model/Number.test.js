@@ -16,4 +16,13 @@ describe("Number class use cases", () => {
         expect(number.concat).toBeCalled();
     })
 
+
+    test("Can change the phone from a number to string", () => {
+        number.phone = 222222
+        const convertedPhone = number.convert();
+     
+        expect(typeof convertedPhone).toBe('string');
+
+    })
+
 }) 
